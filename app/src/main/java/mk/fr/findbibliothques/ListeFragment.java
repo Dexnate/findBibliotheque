@@ -1,6 +1,7 @@
 package mk.fr.findbibliothques;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -119,8 +120,8 @@ public class ListeFragment extends Fragment implements AdapterView.OnItemClickLi
                 bibliotheque.setVille(item.getJSONObject("fields").getString("ville"));
                 bibliotheque.setCp(item.getJSONObject("fields").getInt("code_postal"));
                 bibliotheque.setAdresse(item.getJSONObject("fields").getString("adresse"));
-                bibliotheque.setLatitude(item.getJSONObject("geometry").getJSONArray("coordinates").getDouble(1));
-                bibliotheque.setLongitude(item.getJSONObject("geometry").getJSONArray("coordinates").getDouble(0));
+                bibliotheque.setLatitude(item.getJSONObject("geometry").getJSONArray("coordinates").getDouble(0));
+                bibliotheque.setLongitude(item.getJSONObject("geometry").getJSONArray("coordinates").getDouble(1));
 
                 //ajout de la bibliotheque à la liste
                 list.add(bibliotheque);
@@ -134,7 +135,18 @@ public class ListeFragment extends Fragment implements AdapterView.OnItemClickLi
 
     @Override
     public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
+//Recuperation de l'utilisateur sur lequel on vient de cliquer
+        Bibliothèque selectedBibliotheque = this.bibliothequeList.get(position);
 
+        //Création d'une intention pour l'affichage de la carte
+        Intent mapIntention = new Intent(this.getActivity(), MapsActivity.class);
+
+        //Passage des paramètres
+        mapIntention.putExtra("latitude", selectedBibliotheque.getLatitude());
+        mapIntention.putExtra("longitude", selectedBibliotheque.getLongitude());
+
+        //Affichage de l'activité
+        startActivity(mapIntention);
     }
 
 
