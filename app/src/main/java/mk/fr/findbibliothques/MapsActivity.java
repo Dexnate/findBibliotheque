@@ -2,6 +2,7 @@ package mk.fr.findbibliothques;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -10,9 +11,21 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import org.w3c.dom.Text;
+
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+
+    private TextView libelleTextView;
+    private TextView villeTextView;
+    private TextView cpTextView;
+    private TextView adresseTextView;
+
+    private String libelle;
+    private  String ville;
+    private String cp;
+    private String adresse;
     private Double latitude;
     private Double longitude;
 
@@ -21,10 +34,25 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        libelleTextView = findViewById(R.id.libelleTextView);
+        villeTextView = findViewById(R.id.villeTextView);
+        cpTextView = findViewById(R.id.cpTextView);
+        adresseTextView = findViewById(R.id.adresseTextView);
+
         //Récuperation des données passées à l'activité
         Bundle params = getIntent().getExtras();
+
+        libelle = params.getString("libelle");
+        ville = params.getString("ville");
+        cp = params.getString("cp");
+        adresse =params.getString("adresse");
         latitude = params.getDouble("latitude");
         longitude = params.getDouble("longitude");
+
+        libelleTextView.setText(libelle);
+        villeTextView.setText(ville);
+        cpTextView.setText(cp);
+        adresseTextView.setText(adresse);
 
 
 
@@ -52,7 +80,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(latitude, longitude);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        mMap.addMarker(new MarkerOptions().position(sydney).title(libelle));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.setMinZoomPreference(14.0f);
     }
 }

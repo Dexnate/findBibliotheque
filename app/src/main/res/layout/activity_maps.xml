@@ -5,7 +5,45 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp" android:layout_weight="4">
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/libelleTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25dp"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/adresseTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/villeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="TextView" />
+
+        <TextView
+            android:id="@+id/cpTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="TextView" />
+
 
     </LinearLayout>
 
@@ -16,7 +54,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6"
+        android:layout_weight="7"
         tools:context="mk.fr.findbibliothques.MapsActivity" />
 
 </LinearLayout>

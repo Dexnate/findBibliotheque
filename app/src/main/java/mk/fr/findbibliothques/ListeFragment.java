@@ -47,7 +47,7 @@ public class ListeFragment extends Fragment implements AdapterView.OnItemClickLi
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        Toast.makeText(getActivity() , "Fragment appelé", Toast.LENGTH_SHORT).show();
+       // Toast.makeText(getActivity() , "Fragment appelé", Toast.LENGTH_SHORT).show();
         getDataFromHttp();
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_liste, container, false);
@@ -118,7 +118,7 @@ public class ListeFragment extends Fragment implements AdapterView.OnItemClickLi
 
                 bibliotheque.setLibelle(item.getJSONObject("fields").getString("libelle"));
                 bibliotheque.setVille(item.getJSONObject("fields").getString("ville"));
-                bibliotheque.setCp(item.getJSONObject("fields").getInt("code_postal"));
+                bibliotheque.setCp(item.getJSONObject("fields").getString("code_postal"));
                 bibliotheque.setAdresse(item.getJSONObject("fields").getString("adresse"));
                 bibliotheque.setLatitude(item.getJSONObject("geometry").getJSONArray("coordinates").getDouble(0));
                 bibliotheque.setLongitude(item.getJSONObject("geometry").getJSONArray("coordinates").getDouble(1));
@@ -142,6 +142,10 @@ public class ListeFragment extends Fragment implements AdapterView.OnItemClickLi
         Intent mapIntention = new Intent(this.getActivity(), MapsActivity.class);
 
         //Passage des paramètres
+        mapIntention.putExtra("libelle", selectedBibliotheque.getLibelle());
+        mapIntention.putExtra("ville", selectedBibliotheque.getVille());
+        mapIntention.putExtra("cp", selectedBibliotheque.getCp());
+        mapIntention.putExtra("adresse",selectedBibliotheque.getAdresse());
         mapIntention.putExtra("latitude", selectedBibliotheque.getLatitude());
         mapIntention.putExtra("longitude", selectedBibliotheque.getLongitude());
 

@@ -7,7 +7,7 @@ package mk.fr.findbibliothques.dummy.Model;
 public class Bibliothèque {
     private String libelle;
     private String ville;
-    private int cp;
+    private String cp;
     private String adresse;
     private Double latitude;
     private Double longitude;
@@ -34,11 +34,11 @@ public class Bibliothèque {
         return this;
     }
 
-    public int getCp() {
+    public String getCp() {
         return cp;
     }
 
-    public Bibliothèque setCp(int cp) {
+    public Bibliothèque setCp(String cp) {
         this.cp = cp;
         return this;
     }
