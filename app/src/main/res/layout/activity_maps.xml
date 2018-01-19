@@ -1,12 +1,13 @@
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/colorPrimaryDark"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:orientation="vertical">
 
 
@@ -14,8 +15,9 @@
             android:id="@+id/libelleTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="25dp"
-            android:layout_gravity="center"
+            android:textSize="20dp"
+            android:textColor="@color/blanc"
+            android:gravity="center_horizontal"
             android:textStyle="bold"
             android:layout_weight="1"
             android:text="TextView" />
@@ -24,7 +26,8 @@
             android:id="@+id/adresseTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:textColor="@color/blanc"
+            android:gravity="center_horizontal"
             android:layout_weight="1"
             android:text="TextView" />
 
@@ -32,7 +35,8 @@
             android:id="@+id/villeTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:textColor="@color/blanc"
+            android:gravity="center_horizontal"
             android:layout_weight="1"
             android:text="TextView" />
 
@@ -40,7 +44,8 @@
             android:id="@+id/cpTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:textColor="@color/blanc"
+            android:gravity="center_horizontal"
             android:layout_weight="1"
             android:text="TextView" />
 
@@ -54,7 +59,7 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7"
+        android:layout_weight="8"
         tools:context="mk.fr.findbibliothques.MapsActivity" />
 
 </LinearLayout>

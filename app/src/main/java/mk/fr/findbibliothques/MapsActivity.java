@@ -34,6 +34,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
 
+        //Récupération des widgets pour traitement
         libelleTextView = findViewById(R.id.libelleTextView);
         villeTextView = findViewById(R.id.villeTextView);
         cpTextView = findViewById(R.id.cpTextView);
@@ -49,6 +50,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         latitude = params.getDouble("latitude");
         longitude = params.getDouble("longitude");
 
+
+        //Transmission des données aux widgets correspondants
         libelleTextView.setText(libelle);
         villeTextView.setText(ville);
         cpTextView.setText(cp);

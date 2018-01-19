@@ -60,12 +60,12 @@ public class ListeFragment extends Fragment implements AdapterView.OnItemClickLi
     }
 
     private void processResponse(String response) {
-        //transformation de la réponse json en list de RandomUser
+        //transformation de la réponse json en list de bibliothèques
         bibliothequeList = responseToList(response);
 
 
-        //Conversion de la liste de RandomUser en un tableau de String comportant uniquement
-        //le nom des utilisateurs
+        //Conversion de la liste de bibliothèques en un tableau de String comportant uniquement
+        //le nom des bibliothèques
         String[] data = new String[bibliothequeList.size()];
         for (int i = 0; i < bibliothequeList.size(); i++) {
             data[i] = bibliothequeList.get(i).getLibelle();
@@ -110,6 +110,7 @@ public class ListeFragment extends Fragment implements AdapterView.OnItemClickLi
         List<Bibliothèque> list= new ArrayList<>();
         try {
             JSONObject lilleData = new JSONObject(response);
+            //Tableau records sur lequel on travaille
             JSONArray jsonBiblios = lilleData.getJSONArray("records");
             for(int i=0; i<jsonBiblios.length(); i++){
                JSONObject item=(JSONObject)jsonBiblios.get(i);

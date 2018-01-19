@@ -8,6 +8,7 @@
     tools:context="mk.fr.findbibliothques.MainActivity"
     tools:showIn="@layout/app_bar_main"
     android:id="@+id/fragmentContainer"
+    android:background="@drawable/bibliotheques"
     android:orientation="vertical">
 
     <TextView

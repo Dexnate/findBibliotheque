@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_liste) {
-           // Toast.makeText(this, "affichage de la liste", Toast.LENGTH_SHORT).show();
+
             navigateToFragment(new ListeFragment());
         } else if (id == R.id.nav_gallery) {
 
